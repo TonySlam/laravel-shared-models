@@ -3,6 +3,7 @@
 namespace SlamMicro\Sharedmodels;
 
 use PDO;
+use Illuminate\Database\Eloquent\Collection;
 
 class LinkModels
 {
