@@ -37,11 +37,11 @@ class LinkModels
         return $pdo;
     }
 
-    public function getModels()
+    public function getModels(string $table, string $modelClass)
     {
         $pdo = $this->connect();
-        $stmt = $pdo->query('SELECT * FROM stores');
-        $models = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\\Model\\Store');
+        $stmt = $pdo->query("SELECT * FROM $table");
+        $models = $stmt->fetchAll(PDO::FETCH_CLASS, $modelClass);
         return $models;
     }
 }
