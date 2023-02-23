@@ -1,5 +1,8 @@
 {
     "name": "slam-micro/sharedmodels",
+    "minimum-stability": "dev",
+    "license": "MIT",
+    "type": "library",
     "require": {
         "smottt/wideimage": "^1.1",
         "php": "^8.2"
