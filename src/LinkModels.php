@@ -21,6 +21,9 @@ class LinkModels
         $this->password = $password;
     }
 
+    /**
+     * @return PDO
+     */
     public function connect()
     {
         $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->database}";
@@ -28,11 +31,18 @@ class LinkModels
         return $pdo;
     }
 
-    public function getModels(string $table, string $modelClass)
+    /**
+     * @param string $table
+     * @param string $modelClass
+     * @return Collection
+     */
+    public function getModels(string $table, string $modelClass): Collection
     {
         $pdo = $this->connect();
-        $stmt = $pdo->query("SELECT * FROM $table");
-        $models = $stmt->fetchAll(PDO::FETCH_CLASS, $modelClass);
+        $connection = new Illuminate\Database\Connection($pdo);
+        $resolver = new Illuminate\Database\ConnectionResolver(['default' => $connection]);
+        $builder = new Illuminate\Database\Eloquent\Builder($resolver, new $modelClass);
+        $models = $builder->from($table)->get();
         return $models;
     }
 }
