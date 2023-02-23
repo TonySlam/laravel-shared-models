@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace SlamMicro\Sharedmodels;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factory;
