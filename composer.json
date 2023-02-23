@@ -2,7 +2,6 @@
     "name": "slam-micro/sharedmodels",
     "description": "Shared Model for micro-services",
     "type": "composer-plugin",
-    "license": "Slamtony",
     "autoload": {
         "psr-4": {
             "SlamMicro\\Sharedmodels\\": "src/"
