@@ -16,7 +16,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "slam-micro/sharedmodels": "~1.0",
+        "slam-micro/sharedmodels": "^1.0",
         "php": "^8.0"
     },
     "require-dev": {
