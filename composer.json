@@ -1,0 +1,19 @@
+{
+    "name": "slam-micro/sharedmodels",
+    "description": "Shared Model for micro-services",
+    "type": "composer-plugin",
+    "license": "Slamtony",
+    "autoload": {
+        "psr-4": {
+            "SlamMicro\\Sharedmodels\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tony Moakamela",
+            "email": "thabo.tony@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
