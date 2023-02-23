@@ -1,7 +1,6 @@
 <?php
 
-//namespace App\Models;
-namespace LaravelModelApp\LaravelSharedModels;
+namespace Micro\Sharedmodels;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

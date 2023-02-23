@@ -1,18 +1,18 @@
 {
-  "name": "TonySlam/laravel-shared-models",
-  "type": "library",
-  "description": "Your package description goes here",
-  "homepage": "https://github.com/TonySlam/laravel-shared-models",
-  "authors": [
-    {
-      "name": "Tony Moakamela",
-      "email": "thabo.tony@gmail.com",
-      "role": "Developer"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "<LaravelModelApp>\\LaravelSharedModels\\": "src"
-    }
-  }
+    "name": "micro/sharedmodels",
+    "description": "A micro service package used to share models",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Micro\\Sharedmodels\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tony Moakamela",
+            "email": "thabo.tony@gmail.com"
+        }
+    ],
+    "require": {}
 }
