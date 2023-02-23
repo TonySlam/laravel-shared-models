@@ -41,7 +41,7 @@ class LinkModels
     {
         $pdo = $this->connect();
         $stmt = $pdo->query('SELECT * FROM stores');
-        $models = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\\Model\\Model');
+        $models = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\\Model\\Store');
         return $models;
     }
 }
