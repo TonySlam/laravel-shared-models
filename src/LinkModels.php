@@ -2,13 +2,26 @@
 
 namespace SlamMicro\Sharedmodels;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factory;
+use PDO;
 
 class LinkModels
 {
-    public static function link($value)
+    private $host = 'localhost';
+    private $port = '3306';
+
+
+    public static function connect($host, $port, $database, $username, $password = null)
     {
-        return $value;
+        $dsn = "mysql:host={$host};port={$port};dbname={$database}";
+        $pdo = new PDO($dsn, $username, $password);
+        return $pdo;
+    }
+
+    public  function getModels()
+    {
+        $pdo = $this->connect();
+        $stmt = $pdo->query('SELECT * FROM models');
+        $models = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\\Model\\Model');
+        return $models;
     }
 }
