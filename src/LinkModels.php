@@ -26,7 +26,7 @@ class LinkModels
     }*/
     private $host = 'localhost';
     private $port = '3306';
-    private $database = 'stores-db';
+    private $database = 'laravel-db';
     private $username = 'root';
     private $password = '';
 
