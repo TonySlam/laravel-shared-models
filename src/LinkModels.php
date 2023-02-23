@@ -3,7 +3,10 @@
 namespace SlamMicro\Sharedmodels;
 
 use PDO;
+
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Capsule\Manager as Capsule;
+
 
 class LinkModels
 {
@@ -32,18 +35,22 @@ class LinkModels
         return $pdo;
     }
 
-    /**
-     * @param string $table
-     * @param string $modelClass
-     * @return Collection
-     */
     public function getModels(string $table, string $modelClass): Collection
     {
-        $pdo = $this->connect();
-        $connection = new Illuminate\Database\Connection($pdo);
-        $resolver = new Illuminate\Database\ConnectionResolver(['default' => $connection]);
-        $builder = new Illuminate\Database\Eloquent\Builder($resolver, new $modelClass);
-        $models = $builder->from($table)->get();
+        $capsule = new Capsule();
+        $capsule->addConnection([
+            'driver' => 'mysql',
+            'host' => $this->host,
+            'port' => $this->port,
+            'database' => $this->database,
+            'username' => $this->username,
+            'password' => $this->password,
+            'charset' => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix' => '',
+        ]);
+        $capsule->bootEloquent();
+        $models = $modelClass::query()->from($table)->get();
         return $models;
     }
 }
