@@ -6,30 +6,25 @@ use PDO;
 
 class LinkModels
 {
-    /*private $host = 'localhost';
-    private $port = '3306';
+    private $host;
+    private $port;
+    private $database;
+    private $username;
+    private $password;
 
-
-    public static function connect($host, $port, $database, $username, $password = null)
+    public function __construct($host, $port, $database, $username, $password)
     {
-        $dsn = "mysql:host={$host};port={$port};dbname={$database}";
-        $pdo = new PDO($dsn, $username, $password);
-        return $pdo;
+        $this->host = $host;
+        $this->port = $port;
+        $this->database = $database;
+        $this->username = $username;
+        $this->password = $password;
     }
 
-    public  function getModels()
+    public function connect()
     {
-        $pdo = $this->connect();
-        $stmt = $pdo->query('SELECT * FROM models');
-        $models = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\\Model\\Model');
-        return $models;
-    }*/
-
-
-    private function connect($host , $port , $database, $username, $password = null)
-    {
-        $dsn = "mysql:host={$host};port={$port};dbname={$database}";
-        $pdo = new PDO($dsn, $username, $password);
+        $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->database}";
+        $pdo = new PDO($dsn, $this->username, $this->password);
         return $pdo;
     }
 
