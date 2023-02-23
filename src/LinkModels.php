@@ -7,23 +7,8 @@ use Illuminate\Database\Eloquent\Factory;
 
 class LinkModels
 {
-    public static function link($appPath, $appNamespace)
+    public static function link($value)
     {
-        $configPath = $appPath . '/config';
-
-        if (file_exists($configPath)) {
-            require_once $configPath . '/app.php';
-            require_once $configPath . '/database.php';
-        }
-
-        $app = app($appNamespace);
-
-        $factory = $app->make(Factory::class);
-
-        Model::setFactory($factory);
-
-        $migrationPath = $appPath . '/database/migrations';
-
-        Model::loadMigrationsFrom($migrationPath);
+        return $value;
     }
 }
