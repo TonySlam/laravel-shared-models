@@ -35,6 +35,11 @@ class LinkModels
         return $pdo;
     }
 
+    /**
+     * @param string $table
+     * @param string $modelClass
+     * @return Collection
+     */
     public function getModels(string $table, string $modelClass): Collection
     {
         $capsule = new Capsule();
