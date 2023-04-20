@@ -1,11 +1,12 @@
 {
     "name": "slam-micro/sharedmodels",
-    "minimum-stability": "dev",
+    "minimum-stability": "beta",
     "license": "MIT",
     "type": "library",
     "require": {
         "smottt/wideimage": "^1.1",
-        "php": "^8.2"
+        "php": "^8.2",
+        "slamtony/openai": "1.0.0-beta"
     },
     "require-dev": {
         "illuminate/database": "^8.0"
